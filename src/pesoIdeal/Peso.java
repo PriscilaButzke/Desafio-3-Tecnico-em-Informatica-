@@ -77,6 +77,7 @@ public class Peso {
     /*“Abaixo do peso” se seu peso atual for menor que o peso ideal -2.
      *Estará “Acima do peso” se seu peso atual for maior que o peso ideal + 2.
      *Caso nenhuma das opções acima for verdadeira, estará no peso ideal. */
+    
        String r1= "";
        
         if (pesoAtual < (calcularPesoIdeal() - 2 )){
