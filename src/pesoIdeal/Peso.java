@@ -44,23 +44,39 @@ public class Peso {
     public double calcularPesoIdeal(){
         //Peso ideal para Homens(1): (72.7 * altura) – 58;
        //Peso ideal para Mulheres(2): (62.1 * altura) – 44.7;
-        
-       double pesoIdeal=0;
+       
+       
+       /* double pesoIdeal=0;
         if(this.sexo == 1){
-        pesoIdeal =((72.7*this.altura)-58);
+        pesoIdeal =((72.7 *this.altura)-58);
             
         }else if (this.sexo == 2){
-        pesoIdeal =((62.1*this.altura)-44.7);
+        pesoIdeal =((62.1 * this.altura)-44.7);
             
         }
+        return pesoIdeal; */
+       
+        double pesoIdeal;
+        switch (getSexo()){
+            case 1: //Homem
+                pesoIdeal =(72.7 * this.altura)-58;
+                break;
+            case 2: //Mulher
+                pesoIdeal =(62.1 * this.altura)-44.7;
+                break;
+            default: //Qualquer n° diferente
+                pesoIdeal = 0;
+                break;
+        }
         return pesoIdeal;
-    }
+    }    
+                          
+   
     
     public String verificarPeso(){
     /*“Abaixo do peso” se seu peso atual for menor que o peso ideal -2.
      *Estará “Acima do peso” se seu peso atual for maior que o peso ideal + 2.
      *Caso nenhuma das opções acima for verdadeira, estará no peso ideal. */
-    
        String r1= "";
        
         if (pesoAtual < (calcularPesoIdeal() - 2 )){
@@ -78,13 +94,26 @@ public class Peso {
       
   
     public String toString(){
-        return " Peso Ideal: " +calcularPesoIdeal() +
-         "\n Analise do peso atual: \n " + verificarPeso();        
-        }
+        
+        String resp,sexo;
+        
+        if( this.sexo == 2){
+            sexo = "Feminino";
+        }else {
+            sexo = "Masculino";
+        }           
+   
+        resp = " Sexo: " + sexo
+            + "\n Altura: " + this.altura
+            +" \n Peso Ideal: " +calcularPesoIdeal() 
+            +"\n Peso Atual: " + this.pesoAtual 
+            +"\n Analise do peso: \n " + verificarPeso();  
+        
+        return resp;
+    }
    
     }
-       
-    
+      
     
     
         
